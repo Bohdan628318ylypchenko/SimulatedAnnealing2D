@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1156c98c-8143-4918-a105-b503adab1e2d}</ProjectGuid>
-    <RootNamespace>testEQ</RootNamespace>
+    <ProjectGuid>{86bd23ab-ad93-4c32-a778-fe1e9eb2a71e}</ProjectGuid>
+    <RootNamespace>testGlider</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libTest;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libEQ;$(SolutionDir)libTest;$(SolutionDir)libV2;$(SolutionDir)libPolyLine;$(SolutionDir)libMemFailExit;$(SolutionDir)libGlider;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libTest;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libEQ;$(SolutionDir)libTest;$(SolutionDir)libV2;$(SolutionDir)libPolyLine;$(SolutionDir)libMemFailExit;$(SolutionDir)libGlider;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -139,12 +139,21 @@
     <ProjectReference Include="..\libEQ\libEQ.vcxproj">
       <Project>{b759cc4f-5a5f-4830-baae-4005d8eeeb2e}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\libGlider\libGlider.vcxproj">
+      <Project>{e13b00aa-a969-4cd0-8a5f-c49f17656805}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libMemFailExit\libMemFailExit.vcxproj">
+      <Project>{28b577c9-df0e-4774-9b43-6d0932ca73d3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libPolyLine\libPolyLine.vcxproj">
+      <Project>{d98e9727-ad21-4273-b22b-831cf08f61db}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\libTest\libTest.vcxproj">
       <Project>{380c7bf2-c759-43a0-98eb-9146843d6215}</Project>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="pch.h" />
+    <ProjectReference Include="..\libV2\libV2.vcxproj">
+      <Project>{538b9caf-c7dc-466a-83dc-3e00ee6606b3}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.c">
@@ -153,7 +162,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="testEQ.c" />
+    <ClCompile Include="testGlider.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
