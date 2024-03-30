@@ -7,7 +7,7 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include <stdlib.h>
+#include <malloc.h>
 #include <float.h>
 
 #include "Eq.h"

@@ -9,7 +9,7 @@ int V2_DistanceTest(void)
     V2 a = { .x = 1, .y = 1 };
     V2 b = { .x = 4, .y = 5 };
 
-    long double result = V2_Distance(a, b);
+    double result = V2_Distance(a, b);
 
     return result == 5;
 }
