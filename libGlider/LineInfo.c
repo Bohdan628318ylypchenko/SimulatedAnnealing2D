@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "LineInfo.h"
 #include "MemFailExit.h"
+#include <malloc.h>
 
 ListLineInfo * ListLineInfo_New(int capacity)
 {

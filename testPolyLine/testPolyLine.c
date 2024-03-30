@@ -8,7 +8,7 @@ int Line_EvaluateTest(void) {
     Line l = { .a = 3, .b = 4, .c = 10 };
     V2 v2 = { .x = -1, .y = -2 };
 
-    long double result = Line_Evaluate(l, v2);
+    double result = Line_Evaluate(l, v2);
 
     return fabsl(result - (-1)) < 0.001;
 }

@@ -4,15 +4,15 @@
 
 int Eq_EqualTest(void)
 {
-    long double a = 5.0;
-    long double b = 5.0001;
+    double a = 5.0;
+    double b = 5.0001;
     return Eq(a, b, 0.001);
 }
 
 int Eq_NotEqualTest(void)
 {
-    long double a = 5.0;
-    long double b = 5.0001;
+    double a = 5.0;
+    double b = 5.0001;
     return Eq(a, b, 0.0001);
 }
 

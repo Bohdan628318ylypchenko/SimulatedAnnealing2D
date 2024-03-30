@@ -5,7 +5,7 @@
 typedef struct
 {
     int index;
-    long double distanceByDirection;
+    double distanceByDirection;
     V2 intersection;
 } LineInfo;
 

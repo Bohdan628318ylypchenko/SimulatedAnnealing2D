@@ -7,11 +7,13 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include <math.h>
-#include <stdio.h>
-#include <malloc.h>
-
+#define WIN32_LEAN_AND_MEAN
+#include <windows.h>
 #include "MemFailExit.h"
-#include "V2.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <fileapi.h>
+#include <minwindef.h>
+#include <malloc.h>
 
 #endif //PCH_H

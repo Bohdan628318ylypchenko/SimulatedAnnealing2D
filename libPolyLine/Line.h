@@ -4,12 +4,12 @@
 
 typedef struct
 {
-    long double a;
-    long double b;
-    long double c;
+    double a;
+    double b;
+    double c;
 } Line;
 
-long double Line_Evaluate(Line l, V2 v2);
+double Line_Evaluate(Line l, V2 v2);
 
 Line Line_Normalize(Line l);
 

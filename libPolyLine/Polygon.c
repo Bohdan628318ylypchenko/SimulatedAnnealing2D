@@ -2,6 +2,7 @@
 #include "Polygon.h"
 #include "MemFailExit.h"
 #include "Line.h"
+#include <malloc.h>
 
 Polygon * Polygon_New(int count)
 {

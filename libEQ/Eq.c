@@ -2,7 +2,7 @@
 #include "Eq.h"
 #include <math.h>
 
-int Eq(long double a, long double b, long double e)
+int Eq(double a, double b, double e)
 {
     return fabsl(a - b) < e;
 }
