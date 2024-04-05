@@ -1,11 +1,13 @@
 #include "pch.h"
-#include "RandomNumbers.h"
-#include <windows.h>
+#include "RandomNumbersGet.h"
+#include "RandomNumbersInitClose.h"
+#include "WinapiConfig.h"
 #include <MemFailExit.h>
 #include <stdio.h>
 #include <fileapi.h>
 #include <minwindef.h>
 #include <malloc.h>
+#include <winnt.h>
 
 #define ERR_END_OF_SOURCE "Error: reached end of source\n"
 #define ERR_READ_SOURCE "Error: can't read source, code: %d\n"
@@ -34,7 +36,7 @@ BOOL RandomNumbers_Initialize(HANDLE hSource, size_t baseBufferCount, unsigned i
     return _FillBuffer();
 }
 
-BOOL RandomNumbers_Get(double * restrict const result)
+int RandomNumbers_Get(double * restrict const result)
 {
     if (_bufferIndex < _bufferCount)
     {
@@ -59,6 +61,12 @@ BOOL RandomNumbers_Get(double * restrict const result)
     }
 }
 
+void RandomNumbers_Close()
+{
+    if (_buffer != NULL)
+        free(_buffer);
+}
+
 static inline BOOL _FillBuffer()
 {
     DWORD dwNumberOfBytesRead;
@@ -71,13 +79,13 @@ static inline BOOL _FillBuffer()
     }
     else if (bReadResult && dwNumberOfBytesRead == 0)
     {
-        free(_buffer);
+        free(_buffer); _buffer = NULL;
         fprintf(stderr, ERR_END_OF_SOURCE);
         return FALSE;
     }
     else
     {
-        free(_buffer);
+        free(_buffer); _buffer = NULL;
         fprintf(stderr, ERR_READ_SOURCE, GetLastError());
         return FALSE;
     }

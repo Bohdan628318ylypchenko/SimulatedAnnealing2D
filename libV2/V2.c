@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "V2.h"
+#include "Eq.h"
 #include <math.h>
 
 double V2_Distance(V2 a, V2 b)
@@ -50,4 +51,9 @@ V2 V2_Normalize(V2 a)
 	V2 result = { .x = a.x / m, .y = a.y / m };
 
 	return result;
+}
+
+int V2_Eq(V2 a, V2 b, double e)
+{
+	return Eq(a.x, b.x, e) && Eq(a.y, b.y, e);
 }

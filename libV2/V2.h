@@ -15,3 +15,5 @@ V2 V2_Multiply(V2 a, double k);
 V2 V2_DirectionAB(V2 a, V2 b);
 
 V2 V2_Normalize(V2 a);
+
+int V2_Eq(V2 a, V2 b, double e);

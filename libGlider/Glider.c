@@ -84,7 +84,7 @@ static V2 _Glide(V2 a, V2 b, V2 direction,
             int directionTestInboundFlag = 1;
             for (int j = 0; j < polygon->count; j++)
             {
-                if (Line_Evaluate(polygon->lines[i], directionTest) > e1)
+                if (Line_Evaluate(polygon->lines[j], directionTest) > e1)
                 {
                     directionTestInboundFlag = 0;
                     break;

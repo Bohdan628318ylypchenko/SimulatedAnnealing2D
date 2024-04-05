@@ -14,10 +14,10 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumbersGet.h">
+    <ClInclude Include="OptSA.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RandomNumbersInitClose.h">
+    <ClInclude Include="OptPath.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -25,7 +25,10 @@
     <ClCompile Include="pch.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RandomNumbers.c">
+    <ClCompile Include="OptSA.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OptPath.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -18,7 +18,7 @@
     <ClCompile Include="pch.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.c">
+    <ClCompile Include="testRandomNumbers.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
