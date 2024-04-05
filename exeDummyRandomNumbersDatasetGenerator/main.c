@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "WinapiConfig.h"
 #include <winnt.h>
 #include <stdio.h>
 #include <fileapi.h>
@@ -10,26 +11,26 @@
 #include <MemFailExit.h>
 
 static const size_t MAX_NUMBER_COUNT = (size_t)MAXDWORD / sizeof(double) - 1;
-static const unsigned int SEED = 451;
 
 int wmain(int argc, const wchar_t * argv[])
 {
-    if (argc != 4)
+    if (argc != 5)
     {
-        wprintf(L"Usage: exeDRND path-to-output-file number-count batch-count\n");
+        wprintf(L"Usage: exeDRND path-to-output-file number-count batch-count seed\n");
         return 1;
     }
 
     const wchar_t * filename = argv[1];
     const size_t number_count = _wtoll(argv[2]);
     const size_t batch_count = _wtoll(argv[3]);
+    const unsigned int seed = _wtoi(argv[4]);
     
     wprintf(L"Args: filename = %ls, number-count = %llu, batch-count = %llu\n",
             filename, number_count, batch_count);
 
-    if (number_count == 0 || batch_count == 0)
+    if (number_count == 0 || batch_count == 0 || seed == 0)
     {
-        fwprintf(stderr, L"Error: count arguments should be valid integers\n");
+        fwprintf(stderr, L"Error: numeric arguments should be valid integers\n");
         return 1;
     }
 
@@ -55,7 +56,7 @@ int wmain(int argc, const wchar_t * argv[])
     double * batch = (double *)malloc(number_count * sizeof(double));
     MEM_FAIL_EXIT(batch);
     DWORD dwNumberOfBytesToWrite = number_count * sizeof(double); 
-    srand(SEED);
+    srand(seed);
     for (size_t i = 0; i < batch_count; i++)
     {
         for (size_t j = 0; j < number_count; j++)

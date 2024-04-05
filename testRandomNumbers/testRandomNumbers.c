@@ -1,7 +1,8 @@
 #include "pch.h"
-#include <windows.h>
+#include "WinapiConfig.h"
 #include "MemFailExit.h"
-#include "RandomNumbers.h"
+#include "RandomNumbersGet.h"
+#include "RandomNumbersInitClose.h"
 #include "Eq.h"
 #include <malloc.h>
 #include <stdio.h>
@@ -84,6 +85,7 @@ int main(void)
         if (!RandomNumbers_Get(&actual))
         {
             fprintf(stderr, "Error: can't get random numbers\n");
+            RandomNumbers_Close();
             CloseHandle(hFile);
             free(numbers);
             return 1;
@@ -94,6 +96,7 @@ int main(void)
         {
             fprintf(stderr, "Error: numbers are not equal, index = %zu:\n"
                     "    expected = %Lf; actual = %Lf\n", i, numbers[i], actual);
+            RandomNumbers_Close();
             CloseHandle(hFile);
             free(numbers);
             return 1;
@@ -102,6 +105,7 @@ int main(void)
 
     puts("Test passed!");
 
+    RandomNumbers_Close();
     free(numbers);
     CloseHandle(hFile);
 

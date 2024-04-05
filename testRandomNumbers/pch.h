@@ -1,10 +1,10 @@
 #ifndef PCH_H
 #define PCH_H
 
-#define WIN32_LEAN_AND_MEAN
-#include <windows.h>
+#include "WinapiConfig.h"
 #include "MemFailExit.h"
-#include "RandomNumbers.h"
+#include "RandomNumbersGet.h"
+#include "RandomNumbersInitClose.h"
 #include "Eq.h"
 #include <malloc.h>
 #include <stdlib.h>

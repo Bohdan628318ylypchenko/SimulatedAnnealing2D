@@ -7,13 +7,17 @@
 #ifndef PCH_H
 #define PCH_H
 
-#include "WinapiConfig.h"
 #include "MemFailExit.h"
-#include <stdint.h>
+#include "Eq.h"
+#include "Glide.h"
+#include "Line.h"
+#include "Polygon.h"
+#include "V2.h"
+#include "RandomNumbersGet.h"
 #include <stdio.h>
-#include <fileapi.h>
-#include <minwindef.h>
 #include <malloc.h>
-#include <winnt.h>
+
+#define _USE_MATH_DEFINES
+#include <math.h>
 
 #endif //PCH_H

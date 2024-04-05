@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{93ca2695-77d3-4e4f-ac43-3cc9723a5c91}</ProjectGuid>
-    <RootNamespace>testRandomNumbers</RootNamespace>
+    <ProjectGuid>{d14e31c1-a164-4bef-8238-f3c1ccad4d47}</ProjectGuid>
+    <RootNamespace>testOptSA</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libWinapiConfig;$(SolutionDir)libRandomNumbers;$(SolutionDir)libMemFailExit;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libWinapiConfig;$(SolutionDir)libV2;$(SolutionDir)libTest;$(SolutionDir)libRandomNumbers;$(SolutionDir)libPolyLine;$(SolutionDir)libOptSA;$(SolutionDir)libMemFailExit;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libWinapiConfig;$(SolutionDir)libRandomNumbers;$(SolutionDir)libMemFailExit;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libWinapiConfig;$(SolutionDir)libV2;$(SolutionDir)libTest;$(SolutionDir)libRandomNumbers;$(SolutionDir)libPolyLine;$(SolutionDir)libOptSA;$(SolutionDir)libMemFailExit;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -142,8 +142,20 @@
     <ProjectReference Include="..\libMemFailExit\libMemFailExit.vcxproj">
       <Project>{28b577c9-df0e-4774-9b43-6d0932ca73d3}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\libOptSA\libOptSA.vcxproj">
+      <Project>{67931abe-4308-4f9f-bf70-297ad7699cc0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libPolyLine\libPolyLine.vcxproj">
+      <Project>{d98e9727-ad21-4273-b22b-831cf08f61db}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\libRandomNumbers\libRandomNumbers.vcxproj">
       <Project>{1f25d7c3-081d-48fb-a11a-0098a593cf57}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libTest\libTest.vcxproj">
+      <Project>{380c7bf2-c759-43a0-98eb-9146843d6215}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libV2\libV2.vcxproj">
+      <Project>{538b9caf-c7dc-466a-83dc-3e00ee6606b3}</Project>
     </ProjectReference>
     <ProjectReference Include="..\libWinapiConfig\libWinapiConfig.vcxproj">
       <Project>{2286a57c-f401-46b2-bdb6-0226b826e963}</Project>
@@ -153,8 +165,10 @@
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="testRandomNumbers.c" />
+    <ClCompile Include="testOptSA.c" />
     <ClCompile Include="pch.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>

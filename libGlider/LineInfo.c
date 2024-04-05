@@ -5,7 +5,7 @@
 
 ListLineInfo * ListLineInfo_New(int capacity)
 {
-    ListLineInfo * lli = (ListLineInfo *)malloc(sizeof(ListLineInfo *) + capacity * sizeof(LineInfo));
+    ListLineInfo * lli = (ListLineInfo *)malloc(sizeof(ListLineInfo) + capacity * sizeof(LineInfo));
     MEM_FAIL_EXIT(lli);
 
     lli->capacity = capacity;
@@ -21,11 +21,6 @@ int ListLineInfo_Append(ListLineInfo * restrict const lli, LineInfo li)
     
     lli->info[lli->count++] = li;
     return 1;
-}
-
-void ListLineInfo_Clear(ListLineInfo * restrict const lli)
-{
-    lli->count = 0;
 }
 
 ListLineInfo * ListLineInfo_Free(ListLineInfo * lli)

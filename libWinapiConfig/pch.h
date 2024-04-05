@@ -8,12 +8,5 @@
 #define PCH_H
 
 #include "WinapiConfig.h"
-#include "MemFailExit.h"
-#include <stdint.h>
-#include <stdio.h>
-#include <fileapi.h>
-#include <minwindef.h>
-#include <malloc.h>
-#include <winnt.h>
 
 #endif //PCH_H

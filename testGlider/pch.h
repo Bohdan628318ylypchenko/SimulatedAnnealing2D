@@ -9,6 +9,5 @@
 #include "Line.h"
 #include "V2.h"
 #include "MemFailExit.h"
-#include "Eq.h"
 
 #endif PCH_H

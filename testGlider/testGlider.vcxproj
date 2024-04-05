@@ -106,7 +106,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libEQ;$(SolutionDir)libTest;$(SolutionDir)libV2;$(SolutionDir)libPolyLine;$(SolutionDir)libMemFailExit;$(SolutionDir)libGlider;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libTest;$(SolutionDir)libV2;$(SolutionDir)libPolyLine;$(SolutionDir)libMemFailExit;$(SolutionDir)libGlider;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,7 +123,7 @@
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp17</LanguageStandard>
       <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libEQ;$(SolutionDir)libTest;$(SolutionDir)libV2;$(SolutionDir)libPolyLine;$(SolutionDir)libMemFailExit;$(SolutionDir)libGlider;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)libTest;$(SolutionDir)libV2;$(SolutionDir)libPolyLine;$(SolutionDir)libMemFailExit;$(SolutionDir)libGlider;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
@@ -136,9 +136,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libEQ\libEQ.vcxproj">
-      <Project>{b759cc4f-5a5f-4830-baae-4005d8eeeb2e}</Project>
-    </ProjectReference>
     <ProjectReference Include="..\libGlider\libGlider.vcxproj">
       <Project>{e13b00aa-a969-4cd0-8a5f-c49f17656805}</Project>
     </ProjectReference>
