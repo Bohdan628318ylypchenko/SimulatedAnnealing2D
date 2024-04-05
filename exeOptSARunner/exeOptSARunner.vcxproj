@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{1156c98c-8143-4918-a105-b503adab1e2d}</ProjectGuid>
-    <RootNamespace>testEQ</RootNamespace>
+    <ProjectGuid>{d29b24c9-1bc0-4bf4-84a2-b92177321275}</ProjectGuid>
+    <RootNamespace>exeOptSARunner</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -104,11 +104,11 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libTest;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)libWinapiConfig;$(SolutionDir)libV2;$(SolutionDir)libRandomNumbers;$(SolutionDir)libPolyLine;$(SolutionDir)libOptSA;$(SolutionDir)libMemFailExit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -123,14 +123,14 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <LanguageStandard>stdcpp17</LanguageStandard>
-      <LanguageStandard_C>stdc17</LanguageStandard_C>
-      <AdditionalIncludeDirectories>$(SolutionDir)libTest;$(SolutionDir)libEQ;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
-      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
-      <EnableEnhancedInstructionSet>AdvancedVectorExtensions2</EnableEnhancedInstructionSet>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <AdditionalIncludeDirectories>$(SolutionDir)libWinapiConfig;$(SolutionDir)libV2;$(SolutionDir)libRandomNumbers;$(SolutionDir)libPolyLine;$(SolutionDir)libOptSA;$(SolutionDir)libMemFailExit;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <EnableFiberSafeOptimizations>false</EnableFiberSafeOptimizations>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -140,24 +140,36 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ProjectReference Include="..\libEQ\libEQ.vcxproj">
-      <Project>{b759cc4f-5a5f-4830-baae-4005d8eeeb2e}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\libTest\libTest.vcxproj">
-      <Project>{380c7bf2-c759-43a0-98eb-9146843d6215}</Project>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="pch.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.c" />
     <ClCompile Include="pch.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">pch.h</PrecompiledHeaderFile>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
-    <ClCompile Include="testEQ.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libMemFailExit\libMemFailExit.vcxproj">
+      <Project>{28b577c9-df0e-4774-9b43-6d0932ca73d3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libOptSA\libOptSA.vcxproj">
+      <Project>{67931abe-4308-4f9f-bf70-297ad7699cc0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libPolyLine\libPolyLine.vcxproj">
+      <Project>{d98e9727-ad21-4273-b22b-831cf08f61db}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libRandomNumbers\libRandomNumbers.vcxproj">
+      <Project>{1f25d7c3-081d-48fb-a11a-0098a593cf57}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libV2\libV2.vcxproj">
+      <Project>{538b9caf-c7dc-466a-83dc-3e00ee6606b3}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\libWinapiConfig\libWinapiConfig.vcxproj">
+      <Project>{2286a57c-f401-46b2-bdb6-0226b826e963}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
