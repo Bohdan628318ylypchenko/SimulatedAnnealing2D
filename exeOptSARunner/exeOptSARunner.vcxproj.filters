@@ -9,8 +9,8 @@
       <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
       <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
     </Filter>
-    <Filter Include="Resource files">
-      <UniqueIdentifier>{b12cdd2f-c5bc-43f4-ae05-dcfb93add8c3}</UniqueIdentifier>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{9556da64-5cf6-43ba-9cd6-dccf6cb3f9b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -27,8 +27,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="runExeDummyRandomNumbersDatasetGenerator.ps1">
-      <Filter>Resource files</Filter>
+    <Text Include="runExeOptSARunner.ps1">
+      <Filter>Resource Files</Filter>
     </Text>
   </ItemGroup>
 </Project>
