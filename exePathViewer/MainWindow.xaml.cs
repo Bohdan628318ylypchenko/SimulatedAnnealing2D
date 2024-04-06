@@ -77,13 +77,17 @@ namespace exePathViewer
                     //PathPlot.Plot.Add.ColorBar(h);
 
                     var pathPlot = PathPlot.Plot.Add.Scatter(X, Y);
-                    pathPlot.Color = ScottPlot.Colors.Red;
+                    pathPlot.Color = ScottPlot.Colors.OrangeRed;
 
                     PathPlot.Plot.Add.HorizontalLine(0);
                     PathPlot.Plot.Add.VerticalLine(0);
 
-                    PathPlot.Plot.Add.Line(new ScottPlot.Coordinates(-10, 0.35), new ScottPlot.Coordinates(10, 0.35));
-
+                    var l1 = PathPlot.Plot.Add.Line(new ScottPlot.Coordinates(-10, 0.35), new ScottPlot.Coordinates(10, 0.35));
+                    l1.LineWidth = 5;
+                    var l2 = PathPlot.Plot.Add.Line(new ScottPlot.Coordinates(-0.5, -1), new ScottPlot.Coordinates(2, 2.5));
+                    l2.LineWidth = 5;
+                    var l3 = PathPlot.Plot.Add.Line(new ScottPlot.Coordinates(3, 0), new ScottPlot.Coordinates(0, 3));
+                    l3.LineWidth = 5;
 
                     PathPlot.Refresh();
 

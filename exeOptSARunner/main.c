@@ -35,11 +35,12 @@ static const double b = 100;
 double target(V2 v2)
 {
     return pow(a - v2.x, 2.0) + b * pow(v2.y - pow(v2.x, 2.0), 2.0);
+    //return 2.0 * v2.x * v2.x + (v2.y - 1) * (v2.y - 1);
 }
 
 double changeTemperature(double t0, double tmin, double tcurrent)
 {
-    return (-1.0) / (tcurrent - 1001.0);
+    return 0.5 * tcurrent;
 }
 
 double changeStepLength(double lmin, double lmax, double lcurrent,
@@ -136,12 +137,13 @@ int main(int argc, char *argv[])
     printf(CONTROL_STR, sourcePath, x, y, t0, tmin, lmax, lmin, N, E1, E2, outputPath);
 
     V2 v2Initial = { .x = x, .y = y };
-    //Line g1 = { .a = 0, .b = -1, .c = 0.35 };
     Line g1 = { .a = 0, .b = -1, .c = 0.35 };
     Line g2 = { .a = 1, .b = 1, .c = -3 };
-    Polygon * polygon = Polygon_New(2);
+    Line g3 = { .a = 1.4, .b = -1, .c = -0.3 };
+    Polygon * polygon = Polygon_New(3);
     polygon->lines[0] = Line_Normalize(g1);
     polygon->lines[1] = Line_Normalize(g2);
+    polygon->lines[2] = Line_Normalize(g3);
 
     OptPath * optPath = OptSA(target, v2Initial, polygon, E1, E2,
                               t0, tmin, changeTemperature,
