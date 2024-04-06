@@ -9,7 +9,7 @@
 
 #include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <malloc.h>
 
 #include "MemFailExit.h"
 #include "V2.h"

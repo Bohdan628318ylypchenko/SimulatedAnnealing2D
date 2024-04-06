@@ -1,0 +1,28 @@
+﻿<Window x:Class="exePathViewer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:exePathViewer"
+        xmlns:ScottPlot="clr-namespace:ScottPlot.WPF;assembly=ScottPlot.WPF"
+        mc:Ignorable="d"
+        Title="R optimizer" Height="538" Width="800">
+    <TabControl>
+        <TabItem Header="Properties">
+            <DockPanel Background="#FFE5E5E5">
+                <Label Content="Solution file path:" FontFamily="Calibri" FontSize="18" DockPanel.Dock="Top" FontWeight="Bold" FontStyle="Italic"/>
+                <TextBox Name="PathTextBox" TextWrapping="Wrap" Text="" DockPanel.Dock="Top" FontSize="18" IsReadOnly="True"/>
+
+                <Button Name="ViewButton" Content="View solution" FontSize="18" FontWeight="Bold" FontStyle="Italic" DockPanel.Dock="Top" Click="ViewButton_Click" Height="50"/>
+                <ScrollViewer HorizontalScrollBarVisibility="Visible" DockPanel.Dock="Top">
+                    <TextBox Name="LogTextBox" Text="" FontFamily="Cascadia Code" FontSize="18" IsReadOnly="True"/>
+                </ScrollViewer>
+            </DockPanel>
+        </TabItem>
+        <TabItem Header="Viewer">
+            <Grid>
+                <ScottPlot:WpfPlot x:Name="PathPlot" DockPanel.Dock="Top"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
+</Window>

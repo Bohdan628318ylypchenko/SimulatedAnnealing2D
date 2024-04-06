@@ -1,0 +1,1 @@
+./exeOptSARunner.exe /s "./testRndSource.rn" /x -2 /y 2 /a 100 /b 0.01 /c 0.5 /d 0.001 /n 300 /o ".\output.path"

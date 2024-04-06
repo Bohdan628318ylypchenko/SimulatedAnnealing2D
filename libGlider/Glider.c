@@ -10,24 +10,24 @@
 
 static V2 _Glide(V2 a, V2 b, V2 direction,
                  const Polygon * restrict const polygon,
-                 long double e1, long double e2,
+                 double e1, double e2,
                  ListLineInfo * restrict const unsatisfiedLinesInfo,
                  ListLineInfo * restrict const closestUnsatisfiedLinesInfo,
                  int * restrict const arrIsPassedFlag);
 
 static inline void _FindAllUnsatisfiedLines(V2 a, V2 b, V2 direction,
                                             const Polygon * restrict const polygon,
-                                            long double e1,
+                                            double e1,
                                             ListLineInfo * restrict const listLineInfo,
                                             const int * restrict const arrIsPassedFlag);
 
 static inline void _FindClosestUnsatisfiedLines(const ListLineInfo * restrict const unsatisfiedLinesInfo,
                                                 ListLineInfo * restrict const closestUnsatisfiedLinesInfo,
-                                                long double e);
+                                                double e);
 
 V2 Glide(V2 a, V2 b, V2 direction,
          const Polygon * restrict const polygon,
-         long double e1, long double e2)
+         double e1, double e2)
 {
     ListLineInfo * unsatsfiedLinesInfo = ListLineInfo_New(polygon->count);
     ListLineInfo * closestUnsatisfiedLinesInfo = ListLineInfo_New(polygon->count);
@@ -47,7 +47,7 @@ V2 Glide(V2 a, V2 b, V2 direction,
 
 static V2 _Glide(V2 a, V2 b, V2 direction,
                  const Polygon * restrict const polygon,
-                 long double e1, long double e2,
+                 double e1, double e2,
                  ListLineInfo * restrict const unsatisfiedLinesInfo,
                  ListLineInfo * restrict const closestUnsatisfiedLinesInfo,
                  int * restrict const arrIsPassedFlag)
@@ -84,7 +84,7 @@ static V2 _Glide(V2 a, V2 b, V2 direction,
             int directionTestInboundFlag = 1;
             for (int j = 0; j < polygon->count; j++)
             {
-                if (Line_Evaluate(polygon->lines[i], directionTest) > e1)
+                if (Line_Evaluate(polygon->lines[j], directionTest) > e1)
                 {
                     directionTestInboundFlag = 0;
                     break;
@@ -111,7 +111,7 @@ static V2 _Glide(V2 a, V2 b, V2 direction,
 
 static inline void _FindAllUnsatisfiedLines(V2 a, V2 b, V2 direction,
                                             const Polygon * restrict const polygon,
-                                            long double e1,
+                                            double e1,
                                             ListLineInfo * restrict const listLineInfo,
                                             const int * restrict const arrIsPassedFlag)
 {
@@ -121,7 +121,7 @@ static inline void _FindAllUnsatisfiedLines(V2 a, V2 b, V2 direction,
             continue;
 
         V2 intersection = Line_IntersectionLinePointDirection(polygon->lines[i], a, direction);
-        long double distanceByDirection = V2_Distance(a, intersection);
+        double distanceByDirection = V2_Distance(a, intersection);
         LineInfo lineInfo =
         {
             .index = i,
@@ -135,9 +135,9 @@ static inline void _FindAllUnsatisfiedLines(V2 a, V2 b, V2 direction,
 
 static inline void _FindClosestUnsatisfiedLines(const ListLineInfo * restrict const unsatisfiedLinesInfo,
                                                 ListLineInfo * restrict const closestUnsatisfiedLinesInfo,
-                                                long double e)
+                                                double e)
 {
-    long double minDistance = LDBL_MAX;
+    double minDistance = LDBL_MAX;
     for (int i = 0; i < unsatisfiedLinesInfo->count; i++)
         if (minDistance > unsatisfiedLinesInfo->info[i].distanceByDirection)
             minDistance = unsatisfiedLinesInfo->info[i].distanceByDirection;
