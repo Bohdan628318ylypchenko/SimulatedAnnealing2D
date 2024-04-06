@@ -186,7 +186,9 @@ xcopy "$(ProjectDir)\runExeOptSARunner.ps1" "$(SolutionDir)Sandbox\" /E /Y</Comm
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <None Include="runExeOptSARunner.ps1" />
+    <Text Include="runExeOptSARunner.ps1">
+      <FileType>Document</FileType>
+    </Text>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

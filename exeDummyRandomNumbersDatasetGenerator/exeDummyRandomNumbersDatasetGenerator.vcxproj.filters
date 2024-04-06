@@ -27,8 +27,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="runExeDummyRandomNumbersDatasetGenerator.ps1">
+    <Text Include="runExeDummyRandomNumbersDatasetGenerator.ps1">
       <Filter>Resource files</Filter>
-    </None>
+    </Text>
   </ItemGroup>
 </Project>

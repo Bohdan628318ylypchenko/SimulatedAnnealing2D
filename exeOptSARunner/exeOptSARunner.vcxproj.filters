@@ -27,8 +27,8 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="runExeOptSARunner.ps1">
+    <Text Include="runExeOptSARunner.ps1">
       <Filter>Resource Files</Filter>
-    </None>
+    </Text>
   </ItemGroup>
 </Project>
