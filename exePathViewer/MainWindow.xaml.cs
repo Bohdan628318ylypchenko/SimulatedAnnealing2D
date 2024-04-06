@@ -67,14 +67,14 @@ namespace exePathViewer
                             data[i,j] = (1 - x) * (1 - x) + 100 * (y - x * x) * (y - x * x);
                         }
                     }
-                    double r = 200;
+                    double r = 25;
                     for (int i = 0; i < 200; i++)
                         for (int j = 0; j < 200; j++)
                             data[i, j] = data[i, j] % r;
                     var h = PathPlot.Plot.Add.Heatmap(data);
                     h.Position = new(new ScottPlot.Coordinates(-2.0, -1.0), new ScottPlot.Coordinates(2.0, 3.0));
-                    h.Colormap = new ScottPlot.Colormaps.Greens();
-                    PathPlot.Plot.Add.ColorBar(h);
+                    h.Colormap = new ScottPlot.Colormaps.Turbo();
+                    //PathPlot.Plot.Add.ColorBar(h);
 
                     var pathPlot = PathPlot.Plot.Add.Scatter(X, Y);
                     pathPlot.Color = ScottPlot.Colors.Red;
