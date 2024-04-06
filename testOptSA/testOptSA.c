@@ -17,8 +17,8 @@
 #define ERR_NO_TEST_RND_SOUCRE "Error: no rnd source '%s' present in current dir, code = %d\n"
 #define ERR_RND_INIT "Error: can't initialize rnd source, code = %d\n"
 
-//static const char * RND_SOURCE_FILENAME = "./testRndSource.rn";
-static const char * RND_SOURCE_FILENAME = "J:\\repos\\RandomNumberDatasets\\testRndSource.rn";
+static const char * RND_SOURCE_FILENAME = "./testRndSource.rn";
+//static const char * RND_SOURCE_FILENAME = "J:\\repos\\RandomNumberDatasets\\testRndSource.rn";
 static const size_t baseBufferCount = 1000;
 static const unsigned int bufferCountMultiplier = 2;
 
