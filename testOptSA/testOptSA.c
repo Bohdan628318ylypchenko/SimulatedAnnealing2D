@@ -56,7 +56,8 @@ static void afterAll()
 
 double changeTemperature1(double t0, double tmin, double tcurrent)
 {
-    return (-1.0) / (tcurrent - 1001.0);
+    //return (-1.0) / (tcurrent - 1001.0);
+    return 0.5 * tcurrent;
 }
 
 double changeStepLength1(double lmin, double lmax, double lcurrent,
@@ -87,10 +88,10 @@ int OptSA_Quadratic1MinInBoundTest(void)
     double e1 = 0.001;
     double e2 = 0.01;
     double t0, tmin;
-    t0 = 5.0; tmin = 0.001;
+    t0 = 5.0; tmin = 0.01;
     double lmin, lmax;
-    lmin = 0.003; lmax = 0.5;
-    unsigned long long N = 1000;
+    lmin = 0.001; lmax = 0.5;
+    unsigned long long N = 300;
 
     OptPath * optPath = OptSA(quadratic1, initialV2, polygon, e1, e2,
                               t0, tmin, changeTemperature1,
