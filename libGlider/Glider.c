@@ -71,6 +71,11 @@ static V2 _Glide(V2 a, V2 b, V2 direction,
         aNext = Line_IntersectionLinePointDirection(finalLine, a, direction);
         bNext = Line_PointProjectionOnNormalizedLine(finalLine, b);
         directionNext = V2_Normalize(V2_DirectionAB(aNext, bNext));
+
+        unsatisfiedLinesInfo->count = closestUnsatisfiedLinesInfo->count = 0;
+        return _Glide(aNext, bNext, directionNext, polygon, e1, e2,
+                      unsatisfiedLinesInfo, closestUnsatisfiedLinesInfo,
+                      arrIsPassedFlag);
     }
     else
     {
@@ -92,19 +97,14 @@ static V2 _Glide(V2 a, V2 b, V2 direction,
             }
 
             if (directionTestInboundFlag)
-                break;
+            {
+                unsatisfiedLinesInfo->count = closestUnsatisfiedLinesInfo->count = 0;
+                return _Glide(aNext, bNext, directionNext, polygon, e1, e2,
+                              unsatisfiedLinesInfo, closestUnsatisfiedLinesInfo,
+                              arrIsPassedFlag);
+            }
         }
-    }
 
-    if (V2_Distance(aNext, bNext) >= e2)
-    {
-        unsatisfiedLinesInfo->count = closestUnsatisfiedLinesInfo->count = 0;
-        return _Glide(aNext, bNext, directionNext, polygon, e1, e2,
-                      unsatisfiedLinesInfo, closestUnsatisfiedLinesInfo,
-                      arrIsPassedFlag);
-    }
-    else
-    {
         return aNext;
     }
 }
