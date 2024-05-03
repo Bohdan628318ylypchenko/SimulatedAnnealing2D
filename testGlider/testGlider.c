@@ -75,7 +75,7 @@ int Glide_GlideTest3(void)
     return V2_Eq(result, expected, E);
 }
 
-int Glide_GlideTestAngle(void)
+int Glide_GlideTestAngle1(void)
 {
     Line gAngle1 = { .a = 1, .b = 0, .c = -6 };
     Line gAngle2 = { .a = 1, .b = 1, .c = -11 };
@@ -96,6 +96,25 @@ int Glide_GlideTestAngle(void)
     return V2_Eq(result, expected, E);
 }
 
+int Glide_GlideTestAngle2(void)
+{
+    Line gAngle1 = { .a = -1, .b = 0, .c = 0 };
+    Line gAngle2 = { .a = 1, .b = -1, .c = 0 };
+
+    polygon = Polygon_New(2);
+    polygon->lines[0] = Line_Normalize(gAngle1);
+    polygon->lines[1] = Line_Normalize(gAngle2);
+
+    V2 aAngle = { .x = 1, .y = 2 };
+    V2 bAngle = { .x = -0.5, .y = -1 };
+    V2 directionAngle = V2_Normalize(V2_DirectionAB(aAngle, bAngle));
+
+    V2 result = Glide(aAngle, bAngle, directionAngle, polygon, 1e-7, 1e-3);
+    V2 expected = { .x = 0, .y = 0 };
+
+    return V2_Eq(result, expected, E);
+}
+
 int main(void)
 {
     Test arrTests[] =
@@ -103,7 +122,8 @@ int main(void)
         { .name = "Glide_GlideTest1", .test = Glide_GlideTest1 },
         { .name = "Glide_GlideTest2", .test = Glide_GlideTest2 },
         { .name = "Glide_GlideTest3", .test = Glide_GlideTest3 },
-        { .name = "Glide_GlideTestAngle", .test = Glide_GlideTestAngle },
+        { .name = "Glide_GlideTestAngle1", .test = Glide_GlideTestAngle1 },
+        { .name = "Glide_GlideTestAngle2", .test = Glide_GlideTestAngle2 },
         NULL
     };
 
